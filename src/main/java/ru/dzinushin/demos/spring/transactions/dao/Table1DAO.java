@@ -23,8 +23,8 @@ public class Table1DAO {
 	public void insertRow(int val) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
-		String sql = "insert into table1(val) values("+val+")";
-		jdbcTemplate.update(sql);
+		String sql = "insert into table1(val) values(?)";
+		jdbcTemplate.update(sql,val);
 	}
 	
 	public void testApacheDBCP()

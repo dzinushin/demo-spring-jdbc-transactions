@@ -32,4 +32,13 @@
  		<property name="table1DAO" ref="table1DAO" /> 		
  	</bean>
 
+	<bean id="accountDAO" class="ru.dzinushin.demos.spring.transactions.dao.AccountDAO">
+ 		<property name="dataSource" ref="dataSource" />
+	</bean> 
+	
+ 	<bean id="accountService" class="ru.dzinushin.demos.spring.transactions.service.AccountService">
+ 		<property name="txManager" ref="txManager" />
+ 		<property name="accountDAO" ref="accountDAO" /> 		
+ 	</bean>
+
 </beans>

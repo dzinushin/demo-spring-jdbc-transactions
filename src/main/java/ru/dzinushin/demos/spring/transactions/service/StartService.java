@@ -54,9 +54,11 @@ public class StartService {
 				new TransactionCallbackWithoutResult() {					
 					@Override
 					protected void doInTransactionWithoutResult(TransactionStatus status) {
-						table1DAO.insertRow(888);						
+						table1DAO.insertRow(888);
+						//status.setRollbackOnly();
 					}
 				}
 		);		
 	 }	
+	
 }
