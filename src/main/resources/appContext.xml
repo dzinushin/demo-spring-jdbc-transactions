@@ -15,19 +15,29 @@
 	<!-- enable the configuration of transactional behavior based on annotations -->
 	<tx:annotation-driven transaction-manager="txManager" />
  
+ 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${jdbc.driverClassName}" />
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
-		<property name="defaultAutoCommit" value="${jdbc.autoCommit}" />
+	  	<property name="defaultAutoCommit" value="${jdbc.autoCommit}" /> 
 	</bean>
-
+<!--  	 
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.SingleConnectionDataSource" > 	 
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="autoCommit" value="${jdbc.autoCommit}" />
+	</bean>
+-->
+ 
 	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
  		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<bean id="accountDAO" class="ru.dzinushin.demos.spring.transactions.dao.AccountDAO">
+	<bean id="accountDAO" class="ru.dzinushin.demos.spring.transactions.dao.AccountDAOImpl">
  		<property name="dataSource" ref="dataSource" />
 	</bean> 
 	

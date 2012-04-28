@@ -1,2 +1,2 @@
-demo-spring-transactions
-========================
+demo-spring-jdbc-transactions
+=============================

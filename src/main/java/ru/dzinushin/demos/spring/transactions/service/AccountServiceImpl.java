@@ -1,8 +1,7 @@
 package ru.dzinushin.demos.spring.transactions.service;
 
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -11,13 +10,13 @@ import ru.dzinushin.demos.spring.transactions.dao.AccountDAO;
 import ru.dzinushin.demos.spring.transactions.domain.Account;
 
 public class AccountServiceImpl implements AccountService {
-	private DataSourceTransactionManager txManager;
+	private PlatformTransactionManager txManager;
 	private AccountDAO accountDAO;
 	
-	public DataSourceTransactionManager getTxManager() {
+	public PlatformTransactionManager getTxManager() {
 		return txManager;
 	}
-	public void setTxManager(DataSourceTransactionManager txManager) {
+	public void setTxManager(PlatformTransactionManager txManager) {
 		this.txManager = txManager;
 	}
 	public AccountDAO getAccountDAO() {
