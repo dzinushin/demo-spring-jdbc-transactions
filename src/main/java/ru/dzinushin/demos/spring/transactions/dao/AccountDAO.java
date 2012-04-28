@@ -76,7 +76,6 @@ public class AccountDAO extends JdbcDaoSupport {
 			System.out.println("numActive="+numActive+" numIdle="+numIdle);
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
